@@ -70,15 +70,6 @@ p.heading:after {
   transition: 0.5s;
 }
 
-@keyframes openSlide {
-  from {
-    transform: translateX(100%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
 
 .exploreContent {
   bottom: 20%;
@@ -145,4 +136,43 @@ p.heading:after {
 
 .uniButton:active {
   transform: scale(0.95);
+}
+.zoomscroll{
+  animation: zoomScroll;
+  animation-timeline: view();
+  animation-range: entry 0% cover 50%;
+}
+@keyframes zoomScroll {
+  0%{
+    transform: scale(1.2) translateY(150px);
+    filter: blur(20px);
+
+  }
+  50%{
+    transform: scale(1) translateY(100px);
+    filter: blur(10px);
+  }
+  100%{
+    transform: scale(1) translateY(0px);
+    filter: blur(0);
+  }
+}
+.zoomscrollAlt{
+  animation: zoomScrollAlt;
+  animation-timeline: view();
+  animation-range: entry 0% cover 60%;
+  transition: 0.5s;
+}
+@keyframes zoomScrollAlt {
+  0%{
+    visibility: hidden;
+    transform: scale(1.2) translateY(-1000%);
+    filter: blur(20px);
+
+  }
+  100%{
+    visibility: visible;
+    transform: scale(1) translateY(0px);
+    filter: blur(0);
+  }
 }
